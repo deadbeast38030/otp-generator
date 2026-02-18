@@ -1,6 +1,6 @@
 import streamlit as st
 import random
-import time
+
 
 # Page config (optional but makes it look better)
 st.set_page_config(page_title="OTP Generator", page_icon="🔐")
@@ -28,3 +28,4 @@ if st.session_state.otp:#if the otp is not "none"
             st.success("✅ OTP Verified Successfully!")
         else:
             st.error("❌ Incorrect OTP. Try again.")
+
