@@ -1,16 +1,30 @@
-import streamlit as st #helps to create web apps using python
-import random          #build in module to generate random numbers 
-from plyer import notification #to get the notification feature from plyer
+import streamlit as st
+import random
+import time
 
-st.title("OTP Generator by Manish ") #big heading of the web page 
-if st.button("Generate OTP"):        #to create the button on the web page
-    otp=random.randint(1000,9999)    #to generate the random number
-    st.success(f"Your OTP is : {otp}")  #showing the automated green success message on the screen
-    st.code(otp,language = "text")    #display the otp in code style box
+# Page config (optional but makes it look better)
+st.set_page_config(page_title="OTP Generator", page_icon="🔐")
 
-    notification.notify(              #the notification part
-        title = "Your OTP",           #notification heading
-        message = f"Your OTP is {otp}, \n Please donot share your OTP with anyone", #the notification body text
-        app_name="OTP Generator",   #name of the app
-    )
+st.title("🔐 OTP Generator by Manish")
 
+# Session_state to store OTP
+if "otp" not in st.session_state:#Storing the data as streamlit reloads the page everytime we click a button 
+    st.session_state.otp = None #if the otp doesnot exists it will be set to none 
+
+# Generate OTP button
+if st.button("Generate OTP"):#if the button is pressed
+    st.session_state.otp = random.randint(1000, 9999)  # Generating a random 4-digit OTP
+    st.success("OTP Generated Successfully!")
+# Display OTP
+if st.session_state.otp:#if the otp is not "none"
+    st.code(st.session_state.otp, language="text")#Display the otp in code style box
+    st.warning("⚠️ Please do not share your OTP with anyone.")#printing a warning message in yellow box
+
+    # Optional: Add verify section
+    user_input = st.text_input("Enter OTP to Verify")#printing a text to take input from the user the otp
+
+    if st.button("Verify OTP"):#if he clicks the verify otp button
+        if user_input == str(st.session_state.otp):#checking the user input with the random generated otp
+            st.success("✅ OTP Verified Successfully!")
+        else:
+            st.error("❌ Incorrect OTP. Try again.")
