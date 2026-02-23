@@ -1,7 +1,9 @@
 # 🔐 OTP Generator Web App
 
 A simple and interactive OTP (One-Time Password) Generator built using **Python** and **Streamlit**.
+
 Deployment done through **Streamlit**.
+
 This web app generates a random 4-digit OTP and allows users to verify it instantly.
 
 ---
