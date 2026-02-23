@@ -1,5 +1,5 @@
-import streamlit as st
-import random
+import streamlit as st                                           #importing streamlit to deploy it from steamlit
+import random                                                    #importing random
 
 
 # Page config (optional but makes it look better)
@@ -33,5 +33,6 @@ if st.session_state.otp:                                          #if the otp is
             st.success("✅ OTP Verified Successfully!")
         else:
             st.error("❌ Incorrect OTP. Try again.")
+
 
 
