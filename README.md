@@ -8,6 +8,8 @@ This web app generates a random 4-digit OTP and allows users to verify it instan
 
 ---
 
+
+
 ## 🚀 Features
 
 - 🔢 Generate Random 4-Digit OTP
